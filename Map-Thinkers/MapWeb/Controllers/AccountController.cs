@@ -14,6 +14,7 @@ using MapDomain.Entities;
 namespace MapWeb.Controllers
 {
     [Authorize]
+    //aaaa
     public class AccountController : BaseController
     {
         private ApplicationSignInManager _signInManager;
