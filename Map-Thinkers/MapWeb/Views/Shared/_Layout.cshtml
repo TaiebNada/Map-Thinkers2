@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+@if ((string)ViewData["UserType"] == "Manager" || (string)ViewData["UserType"] == "Ressource")
+{
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Focus Admin: Admin UI</title>
+        <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
+        <link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
+        <link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
+        <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
+        <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
+
+        <link href="~/Content/BackTemplate/css/lib/weather-icons.css" rel="stylesheet" />
+        <link href="~/Content/BackTemplate/css/lib/owl.carousel.min.css" rel="stylesheet" />
+        <link href="~/Content/BackTemplate/css/lib/owl.theme.default.min.css" rel="stylesheet" />
+        <link href="~/Content/BackTemplate/css/lib/font-awesome.min.css" rel="stylesheet" />
+        <link href="~/Content/BackTemplate/css/lib/themify-icons.css" rel="stylesheet" />
+        <link href="~/Content/BackTemplate/css/lib/menubar/sidebar.css" rel="stylesheet" />
+        <link href="~/Content/BackTemplate/css/lib/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/BackTemplate/css/lib/helper.css" rel="stylesheet" />
+        <link href="~/Content/BackTemplate/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+
+        <div class="site-wrap">
+            @Html.Partial("_MenuBack")
+            @RenderBody()
+            @Html.Partial("_FooterBack")
+        </div>
+        @RenderSection("scripts", required: false)
+    </body>
+}
+else 
+{
+    <head>
+        <title>Server &mdash; Colorlib Website Template</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900|Roboto+Mono:300,400,500">
+
+
+        <link href="~/Content/TemplateFolder/fonts/icomoon/style.css" rel="stylesheet" />
+        <link href="~/Content/TemplateFolder/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/TemplateFolder/css/magnific-popup.css" rel="stylesheet" />
+        <link href="~/Content/TemplateFolder/css/jquery-ui.css" rel="stylesheet" />
+        <link href="~/Content/TemplateFolder/css/owl.carousel.min.css" rel="stylesheet" />
+        <link href="~/Content/TemplateFolder/css/owl.theme.default.min.css" rel="stylesheet" />
+        <link href="~/Content/TemplateFolder/css/bootstrap-datepicker.css" rel="stylesheet" />
+        <link href="~/Content/TemplateFolder/css/animate.css" rel="stylesheet" />
+
+        <link href="~/Content/TemplateFolder/fonts/flaticon/font/_flaticon.css" rel="stylesheet" />
+        <link href="~/Content/TemplateFolder/css/fl-bigmug-line.css" rel="stylesheet" />
+
+        <link href="~/Content/TemplateFolder/css/aos.css" rel="stylesheet" />
+        <link href="~/Content/TemplateFolder/css/style.css" rel="stylesheet" />
+
+    </head>
+    <body>
+        <div class="site-wrap">
+            @Html.Partial("_Menu")
+            @RenderBody()
+            @Html.Partial("_Footer")
+        </div>
+
+        @RenderSection("scripts", required: false)
+        <script src="~/Content/TemplateFolder/js/jquery-3.3.1.min.js"></script>
+        <script src="~/Content/TemplateFolder/js/jquery-migrate-3.0.1.min.js"></script>
+        <script src="~/Content/TemplateFolder/js/jquery-ui.js"></script>
+        <script src="~/Content/TemplateFolder/js/popper.min.js"></script>
+        <script src="~/Content/TemplateFolder/js/bootstrap.min.js"></script>
+        <script src="~/Content/TemplateFolder/js/owl.carousel.min.js"></script>
+        <script src="~/Content/TemplateFolder/js/jquery.stellar.min.js"></script>
+        <script src="~/Content/TemplateFolder/js/jquery.countdown.min.js"></script>
+        <script src="~/Content/TemplateFolder/js/jquery.magnific-popup.min.js"></script>
+        <script src="~/Content/TemplateFolder/js/bootstrap-datepicker.min.js"></script>
+        <script src="~/Content/TemplateFolder/js/aos.js"></script>
+        <script src="~/Content/TemplateFolder/js/main.js"></script>
+    </body>
+}
+</html>
