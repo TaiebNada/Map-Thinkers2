@@ -43,7 +43,11 @@ namespace MapWeb.Controllers
 
             return View();
         }
-     
+        public ActionResult Candidates()
+        {
+
+            return View();
+        }
 
 
 

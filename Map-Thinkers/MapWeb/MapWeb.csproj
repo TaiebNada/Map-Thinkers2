@@ -731,6 +731,7 @@
     <Content Include="Views\Shared\_MenuBack.cshtml" />
     <Content Include="Views\Home\OurClient.cshtml" />
     <Content Include="Views\Home\HomeBack.cshtml" />
+    <Content Include="Views\Home\Candidates.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
