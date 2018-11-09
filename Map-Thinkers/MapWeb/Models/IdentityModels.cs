@@ -30,5 +30,7 @@ namespace MapWeb.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<MapWeb.Models.RadhouenModels.JobOfferModels> JobOfferModels { get; set; }
     }
 }

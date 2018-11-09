@@ -10,7 +10,19 @@
                 <li><a href=@Url.Action("HomeBack","Home")><i class="ti-home"></i> Home </a></li>
                 <li><a href="app-email.html"><i class="ti-user"></i> Clients</a></li>
                 <li><a href="app-profile.html"><i class="ti-user"></i> Resources</a></li>
-                <li><a href=@Url.Action("Candidates","Home")><i class="ti-user"></i> Candidates</a></li>
+                
+                
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-user"></i>Candidates <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href=@Url.Action("CreateJobOffer","JobOffer")>Add a Job Offer</a></li>
+                        <li><a href="chart-morris.html">See All Offers</a></li>
+                        <li><a href="chartjs.html">Resources Stat</a></li>
+                        <li><a href="chartist.html">Mandates Stat</a></li>
+
+                    </ul>
+                </li>
+                
                 <li><a href="app-profile.html"><i class="ti-files"></i> Projects</a></li>
                 <li><a href="app-profile.html"><i class="ti-calendar"></i> Mandates</a></li>
                 <li><a href="app-profile.html"> <i class="ti-view-list-alt"></i> Reclamations</a></li>

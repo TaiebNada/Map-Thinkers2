@@ -86,8 +86,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IServiceRadhouen\IServiceFolder.cs" />
+    <Compile Include="IServiceRadhouen\IServiceInterview.cs" />
+    <Compile Include="IServiceRadhouen\IServiceJobOffer.cs" />
+    <Compile Include="IServiceRadhouen\IServiceJobRequest.cs" />
+    <Compile Include="IServiceRadhouen\IServiceQuestion.cs" />
+    <Compile Include="IServiceRadhouen\IServiceTest.cs" />
+    <Compile Include="ServiceRadhouen\ServiceJobOffer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MapData\MapData.csproj">
+      <Project>{81AE2C1D-C92D-4706-81A4-F8566DC09E6A}</Project>
+      <Name>MapData</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MapDomain\MapDomain.csproj">
       <Project>{c39b34a8-515f-456d-9655-f6876690ea22}</Project>
       <Name>MapDomain</Name>
@@ -101,6 +112,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
