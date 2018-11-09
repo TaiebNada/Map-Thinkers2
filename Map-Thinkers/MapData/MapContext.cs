@@ -42,9 +42,14 @@ namespace MapData
         public DbSet<Message> Message { get; set; }
         public DbSet<Organigram> Organigram { get; set; }
         public DbSet<Request> Request { get; set; }
+        public DbSet<JobOffer> JobOffer { get; set; }
+        public DbSet<Interview> Interview { get; set; }
+        public DbSet<Test> Test { get; set; }
+        public DbSet<Question> Question { get; set; }
+        public DbSet<Folder> Folder { get; set; }
 
 
-     
+
     }
 
     public class ContexInit : DropCreateDatabaseIfModelChanges<MapContext>

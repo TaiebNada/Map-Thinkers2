@@ -89,17 +89,22 @@
     <Compile Include="Entities\Candidate.cs" />
     <Compile Include="Entities\Client.cs" />
     <Compile Include="Entities\DayOff.cs" />
+    <Compile Include="Entities\Folder.cs" />
     <Compile Include="Entities\Holiday.cs" />
     <Compile Include="Entities\InterMandate.cs" />
+    <Compile Include="Entities\Interview.cs" />
+    <Compile Include="Entities\JobOffer.cs" />
     <Compile Include="Entities\JobRequest.cs" />
     <Compile Include="Entities\Manager.cs" />
     <Compile Include="Entities\Mandate.cs" />
     <Compile Include="Entities\Message.cs" />
     <Compile Include="Entities\Organigram.cs" />
     <Compile Include="Entities\Project.cs" />
+    <Compile Include="Entities\Question.cs" />
     <Compile Include="Entities\Request.cs" />
     <Compile Include="Entities\Ressource.cs" />
     <Compile Include="Entities\Skills.cs" />
+    <Compile Include="Entities\Test.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

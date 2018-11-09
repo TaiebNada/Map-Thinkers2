@@ -8,7 +8,11 @@ using System.Threading.Tasks;
 
 namespace MapDomain.Entities
 {
-    public enum StateType { Refused, Accepted, OnHold }
+    public enum State
+    {
+        notApplay, interview, testTech, interviewTech, testFr, accepted, applicationAccepted, refused
+
+    }
     public class JobRequest
     {
         [Key]
@@ -16,6 +20,11 @@ namespace MapDomain.Entities
         public int JobRequestId { get; set; }
         public DateTime RequestDate { get; set; }
         public string Speciality { get; set; }
-        public StateType JobRequestState { get; set; }
+        public State JobRequestState { get; set; }
+
+        public String JobRequest_Motivation { get; set; }
+
+        public virtual ICollection<Candidate> Candidates { get; set; }
+        public virtual ICollection<JobOffer> JobOffers { get; set; }
     }
 }
