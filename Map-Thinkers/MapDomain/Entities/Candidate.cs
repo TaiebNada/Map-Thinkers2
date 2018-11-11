@@ -20,6 +20,7 @@ namespace MapDomain.Entities
         public string Picture { get; set; }
 
         public WorkType WorkType { get; set; }
+        public virtual ICollection<JobRequest> JobRequests { get; set; }
 
     }
 }

@@ -20,7 +20,9 @@ namespace MapDomain.Entities
         public TypeInterview InterviewType { get; set; }
         public StateInterview InterviewState { get; set; }
 
-        public virtual ICollection<JobRequest> JobRequests { get; set; }
+        [ForeignKey("JobRequest")]
+        public int JobRequestId { get; set; }
+        public JobRequest JobRequest { get; set; }
 
 
 

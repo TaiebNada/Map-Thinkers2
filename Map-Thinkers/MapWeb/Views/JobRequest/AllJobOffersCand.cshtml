@@ -1,0 +1,69 @@
+﻿@model IEnumerable<MapWeb.Models.RadhouenModels.JobOfferModels>
+
+@{
+    ViewBag.Title = "AllJobOffersCand";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AllJobOffersCand</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.JobOfferDesrip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Required_Profile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateDeb)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateFin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Experience)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Function)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Poste_numb)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobOfferDesrip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Required_Profile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateDeb)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateFin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Experience)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Function)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Poste_numb)
+        </td>
+        <td>
+            @Html.ActionLink("Postulate","CreateApp", new { id=item.JobOfferId })
+           
+        </td>
+    </tr>
+}
+
+</table>

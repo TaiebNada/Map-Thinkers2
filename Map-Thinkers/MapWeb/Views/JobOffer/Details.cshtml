@@ -1,0 +1,74 @@
+﻿@model MapWeb.Models.RadhouenModels.JobOfferModels
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>JobOfferModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.JobOfferDesrip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobOfferDesrip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Required_Profile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Required_Profile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateDeb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateDeb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateFin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateFin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Experience)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Experience)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Function)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Function)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Poste_numb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Poste_numb)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.JobOfferId }) |
+    @Html.ActionLink("Back to List", "AllJobOffers")
+</p>

@@ -215,6 +215,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobRequestController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\JobOfferController.cs" />
     <Compile Include="Global.asax.cs">
@@ -224,6 +225,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\RadhouenModels\JobOfferModels.cs" />
+    <Compile Include="Models\RadhouenModels\JobRequestModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -737,6 +739,11 @@
     <Content Include="Views\Home\HomeBack.cshtml" />
     <Content Include="Views\Home\Candidates.cshtml" />
     <Content Include="Views\JobOffer\CreateJobOffer.cshtml" />
+    <Content Include="Views\JobOffer\AllJobOffers.cshtml" />
+    <Content Include="Views\JobOffer\Edit.cshtml" />
+    <Content Include="Views\JobOffer\Details.cshtml" />
+    <Content Include="Views\JobRequest\AllJobOffersCand.cshtml" />
+    <Content Include="Views\JobRequest\CreateApp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

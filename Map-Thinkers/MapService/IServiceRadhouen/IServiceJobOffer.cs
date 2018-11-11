@@ -15,8 +15,9 @@ namespace MapService.M
          bool removeJobOffer(int idJobOffer);
          JobOffer getJobOffer(int idJobOffer);
          IEnumerable<JobOffer> getAllJobOffer();
-         IEnumerable<JobOffer> getJobOfferBySkills(int ressource);
+         IEnumerable<JobOffer> getJobOfferExperience(string exp);
 
-        
+
+
     }
 }

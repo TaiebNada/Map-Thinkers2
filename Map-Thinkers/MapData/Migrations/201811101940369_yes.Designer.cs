@@ -7,13 +7,13 @@ namespace MapData.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class v33 : IMigrationMetadata
+    public sealed partial class yes : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(v33));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(yes));
         
         string IMigrationMetadata.Id
         {
-            get { return "201811091735043_v33"; }
+            get { return "201811101940369_yes"; }
         }
         
         string IMigrationMetadata.Source

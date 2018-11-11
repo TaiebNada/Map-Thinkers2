@@ -1,21 +1,16 @@
-﻿using System;
+﻿using MapDomain.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace MapDomain.Entities
+namespace MapWeb.Models.RadhouenModels
 {
-    public enum State
+    public class JobRequestModels
     {
-        notApplay, interview, testTech, interviewTech, testFr, accepted, applicationAccepted, refused
 
-    }
-    public class JobRequest
-    {
-        
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int JobRequestId { get; set; }
@@ -28,14 +23,12 @@ namespace MapDomain.Entities
 
 
         public Candidate Candidate { get; set; }
-        [ForeignKey("JobOffer")]
+        
         public int JobOfferId { get; set; }
 
         public JobOffer JobOffer { get; set; }
 
         public virtual ICollection<Interview> Interviews { get; set; }
-
-        
 
 
 

@@ -93,6 +93,7 @@
     <Compile Include="IServiceRadhouen\IServiceQuestion.cs" />
     <Compile Include="IServiceRadhouen\IServiceTest.cs" />
     <Compile Include="ServiceRadhouen\ServiceJobOffer.cs" />
+    <Compile Include="ServiceRadhouen\ServiceJobRequest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MapData\MapData.csproj">

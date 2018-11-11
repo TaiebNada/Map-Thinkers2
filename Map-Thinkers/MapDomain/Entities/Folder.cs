@@ -13,6 +13,8 @@ namespace MapDomain.Entities
     public enum StateMinister {notAccepted, Accepted, inPregress, notSend }
     public class Folder
     {
+       
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int FolderId { get; set; }
@@ -21,5 +23,12 @@ namespace MapDomain.Entities
         public StateLetter Condition { get; set; }
         public StateFolder FolderState { get; set; }
         public StateMinister MinisterState  { get; set; }
+
+        [ForeignKey("JobRequest")]
+        public int JobRequestId { get; set; }
+        public JobRequest JobRequest { get; set; }
+        public ICollection<Test> Tests { get; set; }
+
+
     }
 }

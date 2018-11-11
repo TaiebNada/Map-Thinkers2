@@ -16,8 +16,14 @@ namespace MapDomain.Entities
         public int TestId { get; set; }
         public TypeTest Type { get; set; }
         public String Version { get; set; }
-        public virtual ICollection<Question> Questions { get; set; }
-        public virtual ICollection<Folder> Folders { get; set; }
+
+
+        [ForeignKey("Folder")]
+        public int FolderId { get; set; }
+        public Folder Folder { get; set; }
+
+        public ICollection<Question> Questions { get; set; }
+        public ICollection<Folder> Folders { get; set; }
 
     }
 }

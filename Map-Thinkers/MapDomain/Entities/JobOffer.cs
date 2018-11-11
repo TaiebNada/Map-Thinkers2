@@ -24,6 +24,7 @@ namespace MapDomain.Entities
 
         public int Poste_numb { get; set; }
 
+        public virtual ICollection<JobRequest> JobRequests { get; set; }
 
 
     }
