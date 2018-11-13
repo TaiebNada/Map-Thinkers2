@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MapWeb.Models.RadhouenModels.JobRequestModels>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.JobOffer.JobOfferDesrip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Speciality)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobRequestState)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobRequest_Motivation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobOffer.JobOfferDesrip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Speciality)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobRequestState)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobRequest_Motivation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.JobRequestId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.JobRequestId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.JobRequestId })
+        </td>
+    </tr>
+}
+
+</table>

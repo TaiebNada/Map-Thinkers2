@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MapDomain.Entities
 {
-   public class JobOffer
+   public  class JobOffer
     {
 
         [Key]

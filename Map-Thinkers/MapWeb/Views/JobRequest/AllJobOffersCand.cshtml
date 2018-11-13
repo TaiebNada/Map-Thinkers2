@@ -6,64 +6,51 @@
 }
 
 <h2>AllJobOffersCand</h2>
+<div class="container">
+<div class="row">
+    @foreach (var item in Model)
+    {
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.JobOfferDesrip)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Required_Profile)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateDeb)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateFin)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Experience)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Function)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Poste_numb)
-        </th>
-        <th></th>
-    </tr>
+        <div class="col-md-6 col-lg-4 aos-init aos-animate" data-aos="fade">
+            <div class="unit-7 pricing-table-modern__item">
+                <div class="pricing-table__item-header">
+                    <div class="pricing-table__item-header-bg">
+                        <div class="pricing-table__item-header-bg-inner"></div>
+                    </div>
+                    <p class="pricing-table__item-title mb-0">@Html.DisplayFor(modelItem => item.Required_Profile)</p>
+                </div>
+                <div class="pricing-table__item-main">
+                    <span class="d-block h2">@Html.DisplayFor(modelItem => item.DateDeb)</span>
+                    <ul class="list-unstyled mb-4">
+                        <li></li>
+                        <span class="text-marked">@Html.DisplayFor(modelItem => item.Experience)</span>
+                        <li>
+                        <li><span class="text-marked">@Html.DisplayFor(modelItem => item.Poste_numb)</span></li>
+                        <li><span class="text-marked">@Html.DisplayFor(modelItem => item.Function)</span></li>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.JobOfferDesrip)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Required_Profile)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateDeb)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateFin)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Experience)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Function)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Poste_numb)
-        </td>
-        <td>
-            @Html.ActionLink("Postulate","CreateApp", new { id=item.JobOfferId })
-           
-        </td>
-    </tr>
-}
+                    </ul>
+                    <div class="pricing-table__item-control">
 
-</table>
+                        @if (item.Poste_numb>0)
+                        { <input type="button" class="btn btn-primary btn-primary rounded-0 py-2 px-4" value="Postulate" onclick="location.href='@Url.Action("CreateApp", "JobRequest", new { id = item.JobOfferId })'" />
+
+                        }
+                        else
+                        { <input type="button" disabled class="btn btn-primary btn-primary rounded-0 py-2 px-4" value="Postulate" onclick="location.href='@Url.Action("CreateApp", "JobRequest", new { id = item.JobOfferId })'" />
+                        }
+
+
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+    }
+</div>
+    </div>
+@Html.Raw(TempData["msg"])

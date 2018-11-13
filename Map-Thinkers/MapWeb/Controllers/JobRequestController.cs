@@ -8,6 +8,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Security.Claims;
+using Microsoft.AspNet.Identity;
+
 namespace MapWeb.Controllers
 {
     public class JobRequestController : HomeController
@@ -49,44 +51,94 @@ namespace MapWeb.Controllers
         // GET: JobRequest
         public ActionResult GetAllApp()
         {
-            return View();
+            var JobRequest = JOR.GetMany();
+            List<JobRequestModels> jrm = new List<JobRequestModels>();
+            foreach (var t in JobRequest)
+            {
+
+
+
+
+                if (t.UserId == int.Parse(User.Identity.GetUserId()))
+                {
+                    jrm.Add(
+
+                      new JobRequestModels
+                      {
+                          RequestDate = t.RequestDate,
+                          Speciality = t.Speciality,
+                          JobRequestState = t.JobRequestState,
+                          JobOfferId = t.JobOfferId,
+                          UserId = t.UserId,
+                          JobOffer = Svo.GetById(t.JobOfferId),
+                          JobRequestId=t.JobRequestId,
+                          JobRequest_Motivation = t.JobRequest_Motivation,
+
+
+
+                      });
+                }
+
+            }
+            return View(jrm);
         }
 
         // GET: JobRequest/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            JobRequestModels g = new JobRequestModels();
+            JobRequest JBO = JOR.GetById(id);
+            g.JobRequestState = JBO.JobRequestState;
+            g.JobRequest_Motivation = JBO.JobRequest_Motivation;
+            g.RequestDate = JBO.RequestDate;
+            g.Speciality = JBO.Speciality;
+            g.JobOffer = Svo.GetById(JBO.JobOfferId);
+            g.JobOfferId = JBO.JobOfferId;
+            g.UserId = JBO.UserId;
+
+
+            
+
+            return View(g);
         }
 
         // GET: JobRequest/Create
         public ActionResult CreateApp()
         {
-            JobRequestModels jr = new JobRequestModels();
-            return View(jr);
+            JobRequestModels jp = new JobRequestModels();
+            return View(jp);
         }
 
         // POST: JobRequest/Create
         [HttpPost]
-        public ActionResult CreateApp(JobRequestModels jr)
+        public ActionResult CreateApp(JobRequestModels jr,int id)
         {
-            jr.JobRequestState = State.notApplay;
+            JobOffer jv = Svo.GetById(id);
+
             try
             {
                 JobRequest j = new JobRequest
                 {
-                    JobRequestState = jr.JobRequestState,
+                    JobRequestState = State.notApplay,
                     Speciality = jr.Speciality,
                     JobRequest_Motivation = jr.JobRequest_Motivation,
                     RequestDate = DateTime.Now,
-                    UserId = u.Id,
-                    JobOfferId=jr.JobOfferId,
-                    
+                    UserId = int.Parse(User.Identity.GetUserId()),
+                    JobOfferId = id
                   
-                    
-
                 };
-                JOR.Add(j);
-                JOR.Commit();
+
+                if (jv.Poste_numb > 0)
+                {
+                    JOR.Add(j);
+                    JOR.Commit();
+                    jv.Poste_numb = jv.Poste_numb - 1;
+                }
+                else
+                {
+
+                    TempData["msg"] = "<script>alert('No places');</script>";
+                }
 
                 return RedirectToAction("AllJobOffersCand");
             }
@@ -119,25 +171,36 @@ namespace MapWeb.Controllers
         }
 
         // GET: JobRequest/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult DeleteR(int id)
         {
-            return View();
+            JOR.Delete(JOR.GetById(id));
+            JOR.Commit();
+
+
+            return RedirectToAction("GetAllApp");
         }
 
         // POST: JobRequest/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult DeleteR(int id, JobRequestModels JR)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            JobRequest j=JOR.GetById(id);
+            j.JobOfferId = JR.JobOfferId;
+            j.JobRequestState = JR.JobRequestState;
+            j.JobRequest_Motivation = JR.JobRequest_Motivation;
+            j.RequestDate = JR.RequestDate;
+            j.Speciality = JR.Speciality;
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            JOR.Delete(j);
+            JOR.Commit();
+
+            return RedirectToAction("GetAllApp");
+
+
+
+
+
+
         }
     }
 }

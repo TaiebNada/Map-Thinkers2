@@ -28,6 +28,8 @@ namespace MapService.ServiceRadhouen
         {
 
         }
+       
+
 
         public int addJobRequest(JobRequest a, int idJob, int idRess)
         {
@@ -61,7 +63,19 @@ namespace MapService.ServiceRadhouen
 
         public IEnumerable<JobRequest> getJobRequestId(int idressource)
         {
-            throw new NotImplementedException();
+            ServiceJobRequest sv = new ServiceJobRequest();
+            IEnumerable<JobRequest> events = sv.GetMany();
+            IEnumerable<JobRequest> resultatEvent = new JobRequest[] { };
+            foreach (JobRequest t in events)
+            {
+                Console.WriteLine(t.UserId);
+                Console.WriteLine(idressource);
+                if (t.UserId==idressource)
+                {
+                    resultatEvent.ToList().Add(t);
+                }
+            }
+            return resultatEvent;
         }
 
         public bool setStateApplication(JobRequest application)

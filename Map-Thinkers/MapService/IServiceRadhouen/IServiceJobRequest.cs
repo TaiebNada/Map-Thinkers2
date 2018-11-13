@@ -16,11 +16,11 @@ namespace MapService.M
          IEnumerable<JobRequest> getAllApplication();
          IEnumerable<JobRequest> getApplicationByState(State state);
          bool assignRessource(int idr, int idp);
-         IEnumerable<JobRequest> getJobRequestId(int idressource);
+        IEnumerable<JobRequest> getJobRequestId(int idressource);
          int addJobRequest(JobRequest a, int idJob, int idRess);
 
 
-
+       
 
     }
 }

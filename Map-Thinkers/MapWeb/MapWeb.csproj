@@ -744,6 +744,9 @@
     <Content Include="Views\JobOffer\Details.cshtml" />
     <Content Include="Views\JobRequest\AllJobOffersCand.cshtml" />
     <Content Include="Views\JobRequest\CreateApp.cshtml" />
+    <Content Include="Views\JobRequest\GetAllApp.cshtml" />
+    <Content Include="Views\JobOffer\GetAllAppAdmin.cshtml" />
+    <Content Include="Views\JobRequest\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
