@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MapWeb.Models.SkillRessourceViewModel>
+
+@{
+    ViewBag.Title = "Affect";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Skills affected To Resources</h3>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nomskill)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nomressource)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SkillRate)
+        </th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.nomskill)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomressource)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.SkillRate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>

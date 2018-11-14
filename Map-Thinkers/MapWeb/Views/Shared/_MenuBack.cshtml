@@ -9,7 +9,15 @@
 
                 <li><a href=@Url.Action("HomeBack","Home")><i class="ti-home"></i> Home </a></li>
                 <li><a href="app-email.html"><i class="ti-user"></i> Clients</a></li>
-                <li><a href="app-profile.html"><i class="ti-user"></i> Resources</a></li>
+                <li>
+                    <a class="sidebar-sub-toggle"><i class="ti-user"></i>Resources Management <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <ul>
+                        <li><a href=@Url.Action("AllSkills", "Skills")>Skills</a></li>
+                        <li><a href=@Url.Action("AllResources", "Resource")>Resources</a></li>
+                        <li><a href=@Url.Action("Affect", "SkillRessources")>Skills>>Resources</a></li>
+
+                    </ul>
+                </li>
                 
                 
                 <li>
