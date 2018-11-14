@@ -68,7 +68,14 @@
                     <div class="form-group" id="cd" style="display: none">
 
                         <div class="col-md-10">
-                            <span> aalooo2</span>
+                            @Html.LabelFor(m => m.FirstName, new { @class = "font-weight-bold" })
+                            @Html.PasswordFor(m => m.FirstName, new { @class = "form-control rounded-0", @type = "Text" })
+
+
+                            @Html.LabelFor(m => m.LastName, new { @class = "font-weight-bold" })
+                            @Html.PasswordFor(m => m.LastName, new { @class = "form-control rounded-0", @type = "Text" })
+
+
                         </div>
                     </div>
                     <div class="form-group" id="rs" style="display: none">
