@@ -98,6 +98,7 @@
     <Compile Include="Migrations\201811141744502_v000000.cs" />
     <Compile Include="Migrations\201811141744502_v000000.Designer.cs">
       <DependentUpon>201811141744502_v000000.cs</DependentUpon>
+<<<<<<< HEAD
     </Compile>
     <Compile Include="Migrations\201811142255460_NET.cs" />
     <Compile Include="Migrations\201811142255460_NET.Designer.cs">
@@ -106,6 +107,8 @@
     <Compile Include="Migrations\201811150057225_fllll.cs" />
     <Compile Include="Migrations\201811150057225_fllll.Designer.cs">
       <DependentUpon>201811150057225_fllll.cs</DependentUpon>
+=======
+>>>>>>> 937f1ca19fba7c52ac979e278fe38c2463bbd769
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -123,12 +126,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201811141744502_v000000.resx">
       <DependentUpon>201811141744502_v000000.cs</DependentUpon>
+<<<<<<< HEAD
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811142255460_NET.resx">
       <DependentUpon>201811142255460_NET.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811150057225_fllll.resx">
       <DependentUpon>201811150057225_fllll.cs</DependentUpon>
+=======
+>>>>>>> 937f1ca19fba7c52ac979e278fe38c2463bbd769
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -86,12 +86,18 @@
   </ItemGroup>
   <ItemGroup>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Compile Include="IServiceRadhouen\IServiceTestMark.cs" />
 =======
+=======
+>>>>>>> 937f1ca19fba7c52ac979e278fe38c2463bbd769
     <Compile Include="IServiceResource.cs" />
     <Compile Include="IServiceRessource.cs" />
     <Compile Include="IServiceSkills.cs" />
     <Compile Include="ISkillRessource.cs" />
+<<<<<<< HEAD
+>>>>>>> 937f1ca19fba7c52ac979e278fe38c2463bbd769
+=======
 >>>>>>> 937f1ca19fba7c52ac979e278fe38c2463bbd769
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IServiceRadhouen\IServiceFolder.cs" />
@@ -103,14 +109,20 @@
     <Compile Include="ServiceRadhouen\ServiceJobOffer.cs" />
     <Compile Include="ServiceRadhouen\ServiceJobRequest.cs" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Compile Include="ServiceRadhouen\ServiceQuestion.cs" />
     <Compile Include="ServiceRadhouen\ServiceTest.cs" />
     <Compile Include="ServiceRadhouen\ServiceTestMark.cs" />
 =======
+=======
+>>>>>>> 937f1ca19fba7c52ac979e278fe38c2463bbd769
     <Compile Include="ServiceResource.cs" />
     <Compile Include="ServiceRessource.cs" />
     <Compile Include="ServiceSkillRessource.cs" />
     <Compile Include="ServiceSkills.cs" />
+<<<<<<< HEAD
+>>>>>>> 937f1ca19fba7c52ac979e278fe38c2463bbd769
+=======
 >>>>>>> 937f1ca19fba7c52ac979e278fe38c2463bbd769
   </ItemGroup>
   <ItemGroup>

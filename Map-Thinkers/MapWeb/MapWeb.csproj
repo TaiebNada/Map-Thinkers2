@@ -219,7 +219,13 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\JobOfferController.cs" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Compile Include="Controllers\TestController.cs" />
+=======
+    <Compile Include="Controllers\ResourceController.cs" />
+    <Compile Include="Controllers\SkillRessourcesController.cs" />
+    <Compile Include="Controllers\SkillsController.cs" />
+>>>>>>> 937f1ca19fba7c52ac979e278fe38c2463bbd769
 =======
     <Compile Include="Controllers\ResourceController.cs" />
     <Compile Include="Controllers\SkillRessourcesController.cs" />
@@ -234,9 +240,15 @@
     <Compile Include="Models\RadhouenModels\JobOfferModels.cs" />
     <Compile Include="Models\RadhouenModels\JobRequestModels.cs" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Compile Include="Models\RadhouenModels\QuestionModel.cs" />
     <Compile Include="Models\RadhouenModels\TestMarkModel.cs" />
     <Compile Include="Models\RadhouenModels\TestModel.cs" />
+=======
+    <Compile Include="Models\RessourceViewModel.cs" />
+    <Compile Include="Models\SkillRessourceViewModel.cs" />
+    <Compile Include="Models\SkillsViewModel.cs" />
+>>>>>>> 937f1ca19fba7c52ac979e278fe38c2463bbd769
 =======
     <Compile Include="Models\RessourceViewModel.cs" />
     <Compile Include="Models\SkillRessourceViewModel.cs" />
@@ -764,12 +776,15 @@
     <Content Include="Views\JobOffer\GetAllAppAdmin.cshtml" />
     <Content Include="Views\JobRequest\Details.cshtml" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Content Include="Views\JobRequest\DetailsR.cshtml" />
     <Content Include="Views\JobOffer\DetailsRADMIN.cshtml" />
     <Content Include="Views\Test\GetAllTests.cshtml" />
     <Content Include="Views\JobRequest\EditR.cshtml" />
     <Content Include="Views\JobOffer\EditRADMIN.cshtml" />
 =======
+=======
+>>>>>>> 937f1ca19fba7c52ac979e278fe38c2463bbd769
     <Content Include="Views\Resource\AllResources.cshtml" />
     <Content Include="Views\Resource\CompleteProfile.cshtml" />
     <Content Include="Views\Resource\Delete.cshtml" />
@@ -782,6 +797,9 @@
     <Content Include="Views\Skills\Create.cshtml" />
     <Content Include="Views\Skills\Delete.cshtml" />
     <Content Include="Views\Skills\Edit.cshtml" />
+<<<<<<< HEAD
+>>>>>>> 937f1ca19fba7c52ac979e278fe38c2463bbd769
+=======
 >>>>>>> 937f1ca19fba7c52ac979e278fe38c2463bbd769
   </ItemGroup>
   <ItemGroup>
