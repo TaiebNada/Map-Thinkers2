@@ -115,7 +115,7 @@ namespace MapWeb.Controllers
 
         // POST: JobOffer/Create
         [HttpPost]
-        public async System.Threading.Tasks.Task<ActionResult> CreateJobOffer(JobOfferModels jo)
+        public ActionResult CreateJobOffer(JobOfferModels jo)
         {
             try
             {
@@ -132,35 +132,22 @@ namespace MapWeb.Controllers
                 };
 
 
-              
-                Svo.Add(j);
-                Svo.Commit();
-
-                var body = "<p>Email From: {0} ({1})</p><p>Message:</p><p>{2}</p>";
-                var message = new MailMessage();
-                message.To.Add(new MailAddress("radhouen.abidi@esprit.tn"));  // replace with valid value 
-                message.From = new MailAddress("radhouen.abidi@esprit.tn");  // replace with valid value
-                message.Subject = "Event Created ! ";
-                message.Body = string.Format(body, "Event Services", "radhouen.abidi@esprit.tn", "Your event has been created succuesufly");
-                message.IsBodyHtml = true;
-
-                using (var smtp = new SmtpClient())
+                if (j.DateDeb < j.DateFin && j.DateDeb>DateTime.Now)
                 {
-                    var credential = new NetworkCredential
-                    {
-                        UserName = "radhouen.abidi@gmail.com",  // replace with valid value
-                        Password = "vamoslafrewa1"  // replace with valid value
-                    };
-                    smtp.Credentials = credential;
-                    smtp.Host = "smtp.gmail.com";
-                    smtp.Port = 587;
-                    smtp.EnableSsl = true;
-                    await smtp.SendMailAsync(message);
+                    Svo.Add(j);
+                    Svo.Commit();
+                }
 
+                else
+                {
 
+                    TempData["msg"] = "<script>alert('Check the start and end date of the offer');</script>";
+                   
+                   
                 }
 
                 return RedirectToAction("AllJobOffers");
+
             }
             catch
             {
@@ -187,7 +174,7 @@ namespace MapWeb.Controllers
 
         // POST: JobOffer/Edit/5
         [HttpPost]
-        public async System.Threading.Tasks.Task<ActionResult> Edit(int id, JobOfferModels JBO)
+        public ActionResult Edit(int id, JobOfferModels JBO)
         {
             JobOffer g = Svo.GetById(id);
             g.Experience = JBO.Experience;
@@ -294,5 +281,85 @@ namespace MapWeb.Controllers
 
 
         }
+
+
+        ///////////////////////////////////////////////////////////////
+
+
+        public ActionResult DetailsRADMIN(int id)
+        {
+            JobRequestModels g = new JobRequestModels();
+            JobRequest JBO = JOR.GetById(id);
+            g.JobRequestState = JBO.JobRequestState;
+            g.JobRequest_Motivation = JBO.JobRequest_Motivation;
+            g.RequestDate = JBO.RequestDate;
+            g.Speciality = JBO.Speciality;
+            g.JobOffer = Svo.GetById(JBO.JobOfferId);
+            g.JobOfferId = JBO.JobOfferId;
+            g.UserId = JBO.UserId;
+
+            return View(g);
+        }
+
+
+        ////////////////////////////////////////////
+
+        public ActionResult DeleteRADMIN(int id)
+        {
+            JobRequest j = JOR.GetById(id);
+            JobOffer jb = Svo.GetById(j.JobOfferId);
+            JOR.Delete(JOR.GetById(id));
+            JOR.Commit();
+
+
+            return RedirectToAction("GetAllAppAdmin");
+        }
+
+        // POST: JobRequest/Delete/5
+        [HttpPost]
+        public ActionResult DeleteRADMIN(int id, JobRequestModels JR)
+        {
+            JobRequest j = JOR.GetById(id);
+            JobOffer jb = Svo.GetById(j.JobOfferId);
+            j.JobOfferId = JR.JobOfferId;
+            j.JobRequestState = JR.JobRequestState;
+            j.JobRequest_Motivation = JR.JobRequest_Motivation;
+            j.RequestDate = JR.RequestDate;
+            j.Speciality = JR.Speciality;
+            j.JobOffer = JR.JobOffer;
+
+            JOR.Delete(j);
+            JOR.Commit();
+            jb.Poste_numb = jb.Poste_numb + 1;
+
+            return RedirectToAction("GetAllAppAdmin");
+
+       
+
+        }
+
+
+
+        /////////////////////////////////////////////
+        public ActionResult EditRADMIN(int id)
+        {
+            JobRequestModels g = new JobRequestModels();
+            JobRequest JBO = JOR.GetById(id);
+            g.JobRequestState = JBO.JobRequestState;
+
+            return View(g);
+        }
+
+        // POST: JobRequest/Edit/5
+        [HttpPost]
+        public ActionResult EditRADMIN(int id, JobRequestModels JBO)
+        {
+            JobRequest g = JOR.GetById(id);
+
+            g.JobRequestState = JBO.JobRequestState;
+
+            return RedirectToAction("GetAllAppAdmin");
+        }
+
     }
 }

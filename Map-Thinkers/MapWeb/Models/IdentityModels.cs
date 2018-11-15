@@ -36,5 +36,9 @@ namespace MapWeb.Models
         public System.Data.Entity.DbSet<MapWeb.Models.RadhouenModels.JobRequestModels> JobRequestModels { get; set; }
 
         public System.Data.Entity.DbSet<MapDomain.Entities.JobOffer> JobOffers { get; set; }
+
+        public System.Data.Entity.DbSet<MapWeb.Models.RadhouenModels.TestModel> TestModels { get; set; }
+
+        public System.Data.Entity.DbSet<MapDomain.Entities.Folder> Folders { get; set; }
     }
 }

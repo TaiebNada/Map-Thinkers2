@@ -22,5 +22,6 @@ namespace MapDomain.Entities
         public WorkType WorkType { get; set; }
         public virtual ICollection<JobRequest> JobRequests { get; set; }
 
+        public virtual ICollection<Test> Tests { get; set; }
     }
 }

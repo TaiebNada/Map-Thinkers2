@@ -82,5 +82,41 @@ namespace MapService.ServiceRadhouen
         {
             throw new NotImplementedException();
         }
+
+
+        //public IEnumerable<JobRequest> RecJOBREQ(int id, JobRequest rj)
+        //{
+        //    ServiceJobRequest js = new ServiceJobRequest();
+        //    IEnumerable<JobRequest> events = js.GetMany();
+        //    List<JobRequest> resultatEvent = new List<JobRequest>();
+        //    foreach (JobRequest t in events)
+        //    {
+        //        if (t.UserId == id && t.JobOfferId == rj.JobOfferId)
+        //        {
+        //            resultatEvent.Add(t);
+        //        }
+        //    }
+        //    return resultatEvent;
+        //}
+
+
+        public JobRequest RecJOBREQ(int id, JobRequest rj)
+        {
+            ServiceJobRequest js = new ServiceJobRequest();
+            IEnumerable<JobRequest> events = js.GetMany();
+
+
+            IEnumerable<JobRequest> events2=  (from e in events where e.UserId == id && e.JobOfferId == rj.JobOfferId select e);
+
+            if(!events2.Any())
+            {
+
+                return null;
+            }
+
+            return events2.First();
+
+        }
+
     }
 }

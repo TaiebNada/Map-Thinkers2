@@ -18,9 +18,11 @@ namespace MapService.M
          bool assignRessource(int idr, int idp);
         IEnumerable<JobRequest> getJobRequestId(int idressource);
          int addJobRequest(JobRequest a, int idJob, int idRess);
+        //IEnumerable<JobRequest> RecJOBREQ(int id, JobRequest rj);
+
+         JobRequest RecJOBREQ(int id, JobRequest rj);
 
 
-       
 
     }
 }

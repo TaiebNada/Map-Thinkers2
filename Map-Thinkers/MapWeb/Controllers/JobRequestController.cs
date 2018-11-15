@@ -9,6 +9,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Security.Claims;
 using Microsoft.AspNet.Identity;
+using System.Net.Mail;
+using System.Net;
 
 namespace MapWeb.Controllers
 {
@@ -84,7 +86,7 @@ namespace MapWeb.Controllers
         }
 
         // GET: JobRequest/Details/5
-        public ActionResult Details(int id)
+        public ActionResult DetailsR(int id)
         {
             JobRequestModels g = new JobRequestModels();
             JobRequest JBO = JOR.GetById(id);
@@ -111,9 +113,10 @@ namespace MapWeb.Controllers
 
         // POST: JobRequest/Create
         [HttpPost]
-        public ActionResult CreateApp(JobRequestModels jr,int id)
+        public async System.Threading.Tasks.Task<ActionResult> CreateApp(JobRequestModels jr, int id,ApplicationUserManager usermanager)
         {
             JobOffer jv = Svo.GetById(id);
+
 
             try
             {
@@ -124,21 +127,70 @@ namespace MapWeb.Controllers
                     JobRequest_Motivation = jr.JobRequest_Motivation,
                     RequestDate = DateTime.Now,
                     UserId = int.Parse(User.Identity.GetUserId()),
-                    JobOfferId = id
-                  
+                    JobOfferId = id,
+                    JobOffer = jr.JobOffer,
+                    Candidate=jr.Candidate
+                    
+
+
                 };
 
-                if (jv.Poste_numb > 0)
+                if (JOR.RecJOBREQ(int.Parse(j.UserId.ToString()), j) == null && jv.Poste_numb > 0)
                 {
+
                     JOR.Add(j);
                     JOR.Commit();
+
                     jv.Poste_numb = jv.Poste_numb - 1;
+
+
+
+                    var user = await usermanager.FindByIdAsync(int.Parse(j.UserId.ToString()));
+                        
+                        /*await ApplicationUserManager.UserManager.FindById(j.UserId)*/;
+                    var email = user.Email;
+
+
+                    var body = "<p>Email From: {0} ({1})</p><p>Message:</p><p>{2}</p>";
+                    var message = new MailMessage();
+                    message.To.Add(new MailAddress(email));  // replace with valid value 
+                    message.From = new MailAddress("radhouen.abidi@esprit.tn");  // replace with valid value
+                    message.Subject = "Request Created ! ";
+                    message.Body = string.Format(body, "Request services", "radhouen.abidi@esprit.tn", "Dear Applicant your request has been created successfully");
+                    message.IsBodyHtml = true;
+
+                    using (var smtp = new SmtpClient())
+                    {
+                        var credential = new NetworkCredential
+                        {
+                            UserName = "radhouen.abidi@gmail.com",  // replace with valid value
+                            Password = "vamoslafrewa1"  // replace with valid value
+                        };
+                        smtp.Credentials = credential;
+                        smtp.Host = "smtp.gmail.com";
+                        smtp.Port = 587;
+                        smtp.EnableSsl = true;
+                        await smtp.SendMailAsync(message);
+
+
+                    }
+
+
                 }
                 else
                 {
 
-                    TempData["msg"] = "<script>alert('No places');</script>";
+                    TempData["msg"] = "<script>alert('You already had a request on that Offer');</script>";
+
                 }
+
+
+
+
+
+
+
+
 
                 return RedirectToAction("AllJobOffersCand");
             }
@@ -149,33 +201,37 @@ namespace MapWeb.Controllers
         }
 
         // GET: JobRequest/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult EditR(int id)
         {
-            return View();
+            JobRequestModels g = new JobRequestModels();
+            JobRequest JBO = JOR.GetById(id);
+            g.JobRequest_Motivation = JBO.JobRequest_Motivation;
+            g.Speciality = JBO.Speciality;
+
+            return View(g);
         }
 
         // POST: JobRequest/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult EditR(int id, JobRequestModels JBO)
         {
-            try
-            {
-                // TODO: Add update logic here
+            JobRequest g = JOR.GetById(id);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            g.JobRequest_Motivation = JBO.JobRequest_Motivation;
+            g.Speciality = JBO.Speciality;
+
+
+            return RedirectToAction("GetAllApp");
         }
 
         // GET: JobRequest/Delete/5
         public ActionResult DeleteR(int id)
         {
+            JobRequest j = JOR.GetById(id);
+            JobOffer jb = Svo.GetById(j.JobOfferId);
             JOR.Delete(JOR.GetById(id));
             JOR.Commit();
-
+        
 
             return RedirectToAction("GetAllApp");
         }
@@ -185,14 +241,17 @@ namespace MapWeb.Controllers
         public ActionResult DeleteR(int id, JobRequestModels JR)
         {
             JobRequest j=JOR.GetById(id);
+            JobOffer jb = Svo.GetById(j.JobOfferId);
             j.JobOfferId = JR.JobOfferId;
             j.JobRequestState = JR.JobRequestState;
             j.JobRequest_Motivation = JR.JobRequest_Motivation;
             j.RequestDate = JR.RequestDate;
             j.Speciality = JR.Speciality;
+            j.JobOffer = JR.JobOffer;
 
             JOR.Delete(j);
             JOR.Commit();
+            jb.Poste_numb = jb.Poste_numb + 1;
 
             return RedirectToAction("GetAllApp");
 

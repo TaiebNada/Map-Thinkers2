@@ -95,9 +95,17 @@
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="MapContext.cs" />
-    <Compile Include="Migrations\201811101940369_yes.cs" />
-    <Compile Include="Migrations\201811101940369_yes.Designer.cs">
-      <DependentUpon>201811101940369_yes.cs</DependentUpon>
+    <Compile Include="Migrations\201811141744502_v000000.cs" />
+    <Compile Include="Migrations\201811141744502_v000000.Designer.cs">
+      <DependentUpon>201811141744502_v000000.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811142255460_NET.cs" />
+    <Compile Include="Migrations\201811142255460_NET.Designer.cs">
+      <DependentUpon>201811142255460_NET.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811150057225_fllll.cs" />
+    <Compile Include="Migrations\201811150057225_fllll.Designer.cs">
+      <DependentUpon>201811150057225_fllll.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -113,8 +121,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201811101940369_yes.resx">
-      <DependentUpon>201811101940369_yes.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201811141744502_v000000.resx">
+      <DependentUpon>201811141744502_v000000.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811142255460_NET.resx">
+      <DependentUpon>201811142255460_NET.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811150057225_fllll.resx">
+      <DependentUpon>201811150057225_fllll.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

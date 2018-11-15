@@ -27,7 +27,7 @@ namespace MapDomain.Entities
         [ForeignKey("JobRequest")]
         public int JobRequestId { get; set; }
         public JobRequest JobRequest { get; set; }
-        public ICollection<Test> Tests { get; set; }
+       
 
 
     }

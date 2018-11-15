@@ -75,6 +75,12 @@
                             @Html.LabelFor(m => m.LastName, new { @class = "font-weight-bold" })
                             @Html.PasswordFor(m => m.LastName, new { @class = "form-control rounded-0", @type = "Text" })
 
+                            @Html.LabelFor(m => m.WorkType, new { @class = "font-weight-bold" })
+                            @Html.DropDownList("Worktype",
+                    new SelectList(Enum.GetValues(typeof(WorkType))),
+                    "Worktype",
+                    new { @class = "form-control" })
+
 
                         </div>
                     </div>

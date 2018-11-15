@@ -1,0 +1,90 @@
+﻿@model IEnumerable<MapWeb.Models.RadhouenModels.TestModel>
+
+@{
+    ViewBag.Title = "GetAllTests";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    var a = 0;
+
+    foreach (var i in item.Questions)
+    {
+        <div class="list-group z-depth-1">
+            <div class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="font-bold mb-3 mt-2">
+                        @Html.DisplayFor(modelItem => i.subject)<br />
+                </h5>
+                <small class="text-muted">@a</small>
+            </div>
+            <p class="mb-1">
+                <input name="group @a" type="radio" id="@Html.DisplayFor(modelItem => i.QuestionId)@Html.DisplayFor(modelItem => i.choice1)" value="@Html.DisplayFor(modelItem => i.choice1)">
+                <label for="@Html.DisplayFor(modelItem => i.QuestionId)@Html.DisplayFor(modelItem => i.choice1)">@Html.DisplayFor(modelItem => i.choice1)</label>
+            </p>
+            <p class="mb-1">
+                <input name="group @a" type="radio" id="@Html.DisplayFor(modelItem => i.QuestionId)@Html.DisplayFor(modelItem => i.choice2)" value="@Html.DisplayFor(modelItem => i.choice2)">
+                <label for="@Html.DisplayFor(modelItem => i.QuestionId)@Html.DisplayFor(modelItem => i.choice2)">
+                    @Html.DisplayFor(modelItem => i.choice2)
+                </label>
+            </p>
+            <p class="mb-1">
+                <input name="group @a" type="radio" id="@Html.DisplayFor(modelItem => i.QuestionId)@Html.DisplayFor(modelItem => i.choice3)" value="@Html.DisplayFor(modelItem => i.choice3)">
+                <label for="@Html.DisplayFor(modelItem => i.QuestionId)@Html.DisplayFor(modelItem => i.choice3)">
+                    @Html.DisplayFor(modelItem => i.choice3)
+                </label>
+            </p>
+
+                <p class="mb-1">
+                    <input hidden name="correct @a" type="hidden" id="@Html.DisplayFor(modelItem => i.QuestionId)@Html.DisplayFor(modelItem => i.validchoice)" value="@Html.DisplayFor(modelItem => i.validchoice)">
+                    <label hidden for="@Html.DisplayFor(modelItem => i.QuestionId)@Html.DisplayFor(modelItem => i.validchoice)">
+                        @Html.DisplayFor(modelItem => i.validchoice)
+                    </label>
+                </p>
+           
+            <small class="text-muted">Question @a</small>
+        </div>
+    </div>
+
+        a++;
+
+    }
+    @Html.TextBoxFor(t => t.First().TestId, new { @class = "form-control", @id = "ide" })
+
+}
+@Html.TextBoxFor(t => t.First().score, new { @class = "form-control", @id = "score" })
+
+
+
+
+
+<input id="bout" value="confirmer" type="submit">
+
+
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/jquery-1.10.2.min.js")
+@Scripts.Render("~/Scripts/jquery-1.10.2.min.map")
+  @Scripts.Render("~/Scripts/jquery-1.10.2.intellisense.js")
+@Scripts.Render("~/Scripts/jquery-1.10.2.js")
+    @Scripts.Render("~/bundles/jqueryval")
+<script>
+                        $("#bout").click(function () {
+                            alert("goooooo");
+                            var i = 0;
+                            var note = 0;
+                            for (i = 0; i < 5; i++) {
+                                alert($('input[name="group ' + i + '"]:checked').val());
+                                if ($('input[name="group ' + i + '"]:checked').val() == $('input[name="correct ' + i + '"]').val()) {
+                                    note++;
+                                }
+                            }
+                            alert(note);
+                            document.getElementById("score").value = note;//l hné bech yet7att l score final
+                            document.getElementById("ide").value = 1;//l hné bech te5ou l id mtaa test
+
+                        });
+</script>   
+    
+}

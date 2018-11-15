@@ -13,13 +13,15 @@ namespace MapDomain.Entities
     public enum AvailibilityType { Available, Unavailable, AvailableSoon }
     public class Ressource : User
     {
-        [Required]
+     //   [Required]
         public string FirstName { get; set; }
-        [Required]
+    //    [Required]
         public string LastName { get; set; }
         public ContractType ContractType { get; set; }
         public string Seniority { get; set; }
+        public string AdressRessource { get; set; }
         public string Cv { get; set; }
+        public string PhoneRessource { get; set; }
         public string Picture { get; set; }
         public WorkType WorkType { get; set; }
         public AvailibilityType AvailabilityType { get; set; }
@@ -31,7 +33,7 @@ namespace MapDomain.Entities
         public virtual ICollection<Organigram> Organigrams { get; set; }
 
         public virtual ICollection<Project> Projects { get; set; }
-        public virtual ICollection<Skills> Skills { get; set; }
+        public virtual ICollection<SkillRessource> SkillRessource { get; set; }
 
     }
 }

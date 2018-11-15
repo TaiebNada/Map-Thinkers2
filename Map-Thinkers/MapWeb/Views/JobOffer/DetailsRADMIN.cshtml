@@ -1,0 +1,60 @@
+﻿@model MapWeb.Models.RadhouenModels.JobRequestModels
+
+<div>
+    <h4>JobRequestModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.JobOffer.JobOfferDesrip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobOffer.JobOfferDesrip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Speciality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Speciality)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobRequestState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobRequestState)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobRequest_Motivation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobRequest_Motivation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.JobRequestId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

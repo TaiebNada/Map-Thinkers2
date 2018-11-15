@@ -18,11 +18,6 @@ namespace MapDomain.Entities
         public String choice2 { get; set; }
         public String choice3 { get; set; }
         public String validchoice { get; set; }
-
-        public virtual ICollection<Test> Tests { get; set; }
-
-
-
-
+        public virtual ICollection<Question> Questions { get; set; }
     }
 }

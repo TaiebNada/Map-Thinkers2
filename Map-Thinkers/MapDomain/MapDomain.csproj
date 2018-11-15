@@ -103,8 +103,10 @@
     <Compile Include="Entities\Question.cs" />
     <Compile Include="Entities\Request.cs" />
     <Compile Include="Entities\Ressource.cs" />
+    <Compile Include="Entities\SkillRessource.cs" />
     <Compile Include="Entities\Skills.cs" />
     <Compile Include="Entities\Test.cs" />
+    <Compile Include="Entities\TestMark.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

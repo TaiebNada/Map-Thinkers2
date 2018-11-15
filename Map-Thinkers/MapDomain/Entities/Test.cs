@@ -18,12 +18,12 @@ namespace MapDomain.Entities
         public String Version { get; set; }
 
 
-        [ForeignKey("Folder")]
-        public int FolderId { get; set; }
-        public Folder Folder { get; set; }
+       
+     
+        public virtual ICollection<Candidate> candidats { get; set; }
+        public virtual ICollection<Question> Questions { get; set; }
 
-        public ICollection<Question> Questions { get; set; }
-        public ICollection<Folder> Folders { get; set; }
+        public virtual ICollection<TestMark> Marks { get; set; }
 
     }
 }

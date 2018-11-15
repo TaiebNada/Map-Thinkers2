@@ -16,9 +16,7 @@ namespace MapDomain.Entities
         public string SkillName { get; set; }
         [DataType(DataType.MultilineText)]
         public string SkillDescription { get; set; }
-        [Required]
-        public float SkillRate { get; set; }
-        public virtual ICollection<Ressource> Ressources { get; set; }
+        public virtual ICollection<SkillRessource> SkillRessource { get; set; }
 
     }
 }

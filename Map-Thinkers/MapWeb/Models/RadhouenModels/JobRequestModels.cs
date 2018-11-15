@@ -16,9 +16,12 @@ namespace MapWeb.Models.RadhouenModels
         public int JobRequestId { get; set; }
         [DataType(DataType.Date)]
         public DateTime RequestDate { get; set; }
-        public string Speciality { get; set; }
-        public State JobRequestState { get; set; }
 
+        [Required(ErrorMessage = "Ce champ est obligatoire")]
+        public string Speciality { get; set; }
+       
+        public State JobRequestState { get; set; }
+        [Required(ErrorMessage = "Ce champ est obligatoire")]
         public String JobRequest_Motivation { get; set; }
         public int? UserId { get; set; }
 
